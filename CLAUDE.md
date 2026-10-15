@@ -1,0 +1,142 @@
+# a6i - Project Rules for Claude
+
+> **IMPORTANT: Always read the `memory-bank/` directory at the start of each session. MUST UPDATE memory-bank/activeContext.md and memory-bank/progress.md AFTER EACH SESSION**
+> This contains essential project context, current progress, and active decisions.
+
+This file contains project-specific rules and context for Claude Code.
+
+## Tech Stack
+
+
+## Project Structure
+
+
+## Code Style
+
+
+## Installed Skills
+
+The following skills are installed and available. Read the skill file when working on related tasks.
+
+### Devops
+
+- **CLI Development Expert** (`/Users/mac/Job/personal/opensources/a6i/.claude/skills/cli-expert/SKILL.md`)
+  Expert in building npm package CLIs with Unix philosophy, argument parsing, interactive modes, and CLI library ecosystems
+  Related: typescript-expert (enhances), testing-expert (complementary)
+- **CLI Development Expert** (`/Users/mac/.claude/skills/cli-expert/SKILL.md`)
+  Expert in building npm package CLIs with Unix philosophy, argument parsing, interactive modes, and CLI library ecosystems
+  Related: typescript-expert (enhances), testing-expert (complementary)
+
+### General
+
+- **translate-en-vi** (`/Users/mac/.claude/skills/translate-en-vi/SKILL.md`)
+  Dịch văn xuôi hư cấu từ tiếng Anh sang tiếng Việt — ưu tiên cảm xúc và nhịp điệu, giữ nguyên tên riêng, văn phong tự nhiên như người Việt viết, không thêm bớt nội dung, cập nhật trực tiếp vào file gốc.
+- **cloudflare-one-migrations** (`/Users/mac/.claude/skills/cloudflare-one-migrations/SKILL.md`)
+  Plans migrations from Zscaler ZIA/ZPA, Palo Alto, legacy VPN, SWG, or SASE stacks to Cloudflare One. Use for migration assessments, policy mapping, rollout plans, and parity/gap analysis.
+- **cua-driver** (`/Users/mac/.claude/skills/cua-driver/SKILL.md`)
+  Drive a native macOS app via the cua-driver CLI (default) or MCP server — snapshot its AX tree, click/type/scroll by element_index, verify via re-snapshot. Use when the user asks you to operate, drive, automate, or perform a GUI task in a real macOS application on the host (e.g. "open a file in TextEdit", "navigate to /Applications in Finder", "click the Save button in Numbers").
+- **add-branding-banner** (`/Users/mac/.claude/skills/add-branding-banner/SKILL.md`)
+  Add the shared "Hot News 24h" branding banner and logo to a Remotion project. Copies the reusable BrandingBanner component and logo asset from the shared folder.
+- **cta-1** (`/Users/mac/.claude/skills/cta-1/SKILL.md`)
+  Add a CTA (Call-To-Action) video overlay to the end of a Remotion project. Copies the reusable CTAOverlay component and CTA voiceover audio, then integrates them as the final scene.
+- **durable-objects** (`/Users/mac/.claude/skills/durable-objects/SKILL.md`)
+  Create and review Cloudflare Durable Objects. Use when building stateful coordination (chat rooms, multiplayer games, booking systems), implementing RPC methods, SQLite storage, alarms, WebSockets, or reviewing DO code for best practices. Covers Workers integration, wrangler config, and testing with Vitest. Biases towards retrieval from Cloudflare docs over pre-trained knowledge.
+- **wrangler** (`/Users/mac/.claude/skills/wrangler/SKILL.md`)
+  Cloudflare Workers CLI for deploying, developing, and managing Workers, KV, R2, D1, Vectorize, Hyperdrive, Workers AI, Containers, Queues, Workflows, Pipelines, and Secrets Store. Load before running wrangler commands to ensure correct syntax and best practices. Biases towards retrieval from Cloudflare docs over pre-trained knowledge.
+- **script-to-video-assets** (`/Users/mac/.claude/skills/script-to-video-assets/SKILL.md`)
+  Read tts_short_script.txt and produce scenes.json (one cinematic image prompt per scene, number of scenes based on script length) and characters.json (one character reference sheet prompt per character). Use after create-tts-scripts to prepare assets for AI video/image generation.
+- **agents-sdk** (`/Users/mac/.claude/skills/agents-sdk/SKILL.md`)
+  Build AI agents on Cloudflare Workers using the Agents SDK. Load when creating stateful agents, durable workflows, real-time WebSocket apps, scheduled tasks, MCP servers, chat applications, voice agents, or browser automation. Covers Agent class, state management, callable RPC, Workflows, durable execution, queues, retries, observability, and React hooks. Biases towards retrieval from Cloudflare docs over pre-trained knowledge.
+- **cook-comic-script** (`/Users/mac/.claude/skills/cook-comic-script/SKILL.md`)
+  Transform a raw script/outline into comic book pages — each page has story text and an image prompt for panel illustration.
+- **cloudflare** (`/Users/mac/.claude/skills/cloudflare/SKILL.md`)
+  Comprehensive Cloudflare platform skill covering Workers, Pages, storage (KV, D1, R2), AI (Workers AI, Vectorize, Agents SDK), feature flags (Flagship), networking (Tunnel, Spectrum), security (WAF, DDoS), and infrastructure-as-code (Terraform, Pulumi). Use for any Cloudflare development task. Biases towards retrieval from Cloudflare docs over pre-trained knowledge.
+- **cloudflare-one** (`/Users/mac/.claude/skills/cloudflare-one/SKILL.md`)
+  Guides Cloudflare One Zero Trust and SASE work across Access, Gateway, WARP, Tunnel, Cloudflare WAN, DLP, CASB, device posture, and identity. Use when designing, configuring, troubleshooting, or reviewing Cloudflare One deployments. Retrieval-first: use current Cloudflare docs/API schemas instead of embedded product docs.
+- **rewrite-fiction** (`/Users/mac/.claude/skills/rewrite-fiction/SKILL.md`)
+  Rewrite fiction prose — eliminate word repetition and parallel structures, avoid over-explaining, remove simple cause-effect logic, split long sentences, show don't tell, use natural/vernacular address forms, vary sentence structure, add random rhythm, add silence, avoid character bio dumps, break uniform rhythm, remove report voice and add doubt/judgment, break simple cause-effect patterns, reduce philosophy, add character flaws, expand scenes, remove cinematic language.
+- **book-draft-research** (`/Users/mac/.claude/skills/book-draft-research/SKILL.md`)
+  Deep research a keyword/topic and produce a comprehensive non-fiction book draft script, like Gemini deep research. Takes keyword + scores, outputs a single script.md with chapters.
+- **cloudflare-email-service** (`/Users/mac/.claude/skills/cloudflare-email-service/SKILL.md`)
+  Send and receive transactional emails with Cloudflare Email Service (Email Sending + Email Routing). Use when building email sending (Workers binding or REST API), email routing, Agents SDK email handling, or integrating email into any app — Workers, Node.js, Python, Go, etc. Also use for email deliverability, SPF/DKIM/DMARC, wrangler email setup, MCP email tools, or when a coding agent needs to send emails. Even for simple requests like "add email to my Worker" — this skill has critical config details.
+- **check-story-complete** (`/Users/mac/.claude/skills/check-story-complete/SKILL.md`)
+  Check if a script/story file is a complete story with a proper beginning, middle, and end. Reports what is present and what is missing.
+- **workers-best-practices** (`/Users/mac/.claude/skills/workers-best-practices/SKILL.md`)
+  Reviews and authors Cloudflare Workers code against production best practices. Load when writing new Workers, reviewing Worker code, configuring wrangler.jsonc, or checking for common Workers anti-patterns (streaming, floating promises, global state, secrets, bindings, observability). Biases towards retrieval from Cloudflare docs over pre-trained knowledge.
+- **rewrite-nonfiction** (`/Users/mac/.claude/skills/rewrite-nonfiction/SKILL.md`)
+  Rewrite nonfiction prose (history, biography, celebrity) — preserve facts, eliminate word repetition/report voice/Wikipedia tone, split long sentences, show don't tell with sourced details, vary sentence structure, add random rhythm, add silence, introduce real characters gradually, break uniform rhythm, add author perspective, expand scenes with primary sources.
+- **sandbox-sdk** (`/Users/mac/.claude/skills/sandbox-sdk/SKILL.md`)
+  Build sandboxed applications for secure code execution. Load when building AI code execution, code interpreters, CI/CD systems, interactive dev environments, or executing untrusted code. Covers Sandbox SDK lifecycle, commands, files, code interpreter, and preview URLs. Biases towards retrieval from Cloudflare docs over pre-trained knowledge.
+- **create-tts-scripts** (`/Users/mac/.claude/skills/create-tts-scripts/SKILL.md`)
+  Read all chapter files in the current or given directory and generate two TTS scripts — a long script (5–10 min) for YouTube saved as tts_long_script.txt, and a short script (~1 min) for TikTok saved as tts_short_script.txt.
+- **cook-script** (`/Users/mac/.claude/skills/cook-script/SKILL.md`)
+  Transform a raw script/outline into a full-length book with chapters, expanded prose, and fictionalized names/locations.
+- **cook-book-meta** (`/Users/mac/.claude/skills/cook-book-meta/SKILL.md`)
+  Generate a book cover image prompt, back-cover synopsis/metadata, and SEO-optimized book description from a script file. Outputs a detailed AI image generation prompt, structured book content (title, genre, synopsis, tagline), and a Google-optimized ebook description.
+- **web-perf** (`/Users/mac/.claude/skills/web-perf/SKILL.md`)
+  Analyzes web performance using Chrome DevTools MCP. Measures Core Web Vitals (LCP, INP, CLS) and supplementary metrics (FCP, TBT, Speed Index), identifies render-blocking resources, network dependency chains, layout shifts, caching issues, and accessibility gaps. Use when asked to audit, profile, debug, or optimize page load performance, Lighthouse scores, or site speed. Biases towards retrieval from current documentation over pre-trained knowledge.
+- **cook-nonfiction** (`/Users/mac/.claude/skills/cook-nonfiction/SKILL.md`)
+  Transform a raw script/outline into a full-length non-fiction book (history, biography, celebrity stories) with real names, dates, and locations preserved.
+- **translate-vi-script** (`/Users/mac/.claude/skills/translate-vi-script/SKILL.md`)
+  Translate a long Vietnamese fiction story into English — literary quality, replace ALL character names and location names with English equivalents, preserve tone/structure/emotion, overwrite the original file.
+- **turnstile-spin** (`/Users/mac/.claude/skills/turnstile-spin/SKILL.md`)
+  Set up Cloudflare Turnstile end-to-end in a project — scan the codebase, create the widget via the Cloudflare API, deploy the managed siteverify Worker, write the frontend snippets, validate, and persist the skill. Load this when a user asks to add Turnstile, set up CAPTCHA, protect a form from bots, or fix a Turnstile integration. Mirrors developers.cloudflare.com/turnstile/spin.
+
+### Git
+
+- **Git Expert** (`/Users/mac/Job/personal/opensources/a6i/.claude/skills/git-expert/SKILL.md`)
+  Git workflow expert for merge conflicts, branching strategies, history rewriting, and repository management
+  Related: github (complementary), github-actions (complementary)
+- **Git Expert** (`/Users/mac/.claude/skills/git-expert/SKILL.md`)
+  Git workflow expert for merge conflicts, branching strategies, history rewriting, and repository management
+  Related: github (complementary), github-actions (complementary)
+
+### Workflow
+
+- **Project Setup** (`/Users/mac/Job/personal/opensources/a6i/.claude/skills/setup/SKILL.md`)
+  Auto-detect project tech stack and install matching codekit skills. Use when setting up a new project, onboarding to an existing codebase, or when asked to detect and install compatible skills.
+  Related: memory-bank (complementary), agents (complementary), cook-backend (complementary), cook-frontend (complementary), cook-mobile (complementary), cook-fullstack (complementary), cook-cli (complementary), cook-library (complementary), skill-creator (complementary)
+- **Agents.md** (`/Users/mac/Job/personal/opensources/a6i/.claude/skills/agents/SKILL.md`)
+  Guide for AGENTS.md — the open standard for universal AI coding agent configuration. Use when creating, updating, or onboarding projects to multi-agent workflows.
+  Related: memory-bank (complementary), setup (complementary), git-expert (complementary)
+- **Cook CLI** (`/Users/mac/Job/personal/opensources/a6i/.claude/skills/cook-cli/SKILL.md`)
+  Workflow orchestration for CLI projects — Plan, Code, Review, Test — with memory-bank session continuity.
+  Related: cook-backend (alternative), cook-frontend (alternative), cook-mobile (alternative), cook-fullstack (alternative), cook-library (alternative), testing-expert (complementary), cli-expert (complementary), memory-bank (complementary)
+- **Skill Creator** (`/Users/mac/Job/personal/opensources/a6i/.claude/skills/skill-creator/SKILL.md`)
+  Guide for creating effective skills that extend Claude's capabilities with specialized knowledge, workflows, or tool integrations. Use when creating a new skill or updating an existing one.
+- **Memory Bank** (`/Users/mac/Job/personal/opensources/a6i/.claude/skills/memory-bank/SKILL.md`)
+  Persistent project documentation system that maintains context across sessions with structured Memory Bank files
+- **Github** (`/Users/mac/Job/personal/opensources/a6i/.claude/skills/github/SKILL.md`)
+  GitHub patterns using gh CLI for pull requests, stacked PRs, code review, branching strategies, and repository automation. Use when working with GitHub PRs, merging strategies, or repository management tasks.
+  Related: git-expert (complementary), github-actions (complementary)
+- **Project Setup** (`/Users/mac/.claude/skills/setup/SKILL.md`)
+  Auto-detect project tech stack and install matching codekit skills. Use when setting up a new project, onboarding to an existing codebase, or when asked to detect and install compatible skills.
+  Related: memory-bank (complementary), agents (complementary), cook-backend (complementary), cook-frontend (complementary), cook-mobile (complementary), cook-fullstack (complementary), cook-cli (complementary), cook-library (complementary), skill-creator (complementary)
+- **Agents.md** (`/Users/mac/.claude/skills/agents/SKILL.md`)
+  Guide for AGENTS.md — the open standard for universal AI coding agent configuration. Use when creating, updating, or onboarding projects to multi-agent workflows.
+  Related: memory-bank (complementary), setup (complementary), git-expert (complementary)
+- **Cook CLI** (`/Users/mac/.claude/skills/cook-cli/SKILL.md`)
+  Workflow orchestration for CLI projects — Plan, Code, Review, Test — with memory-bank session continuity.
+  Related: cook-backend (alternative), cook-frontend (alternative), cook-mobile (alternative), cook-fullstack (alternative), cook-library (alternative), testing-expert (complementary), cli-expert (complementary), memory-bank (complementary)
+- **Memory Bank** (`/Users/mac/.claude/skills/memory-bank/SKILL.md`)
+  Persistent project documentation system that maintains context across sessions with structured Memory Bank files
+
+## Development Workflow
+
+## Important Notes
+
+### Memory Bank (Critical)
+**You MUST read the `memory-bank/` directory at the start of EVERY session.** The memory bank contains:
+- `projectbrief.md` - Core requirements and goals
+- `productContext.md` - Problem and solution context
+- `techContext.md` - Technical setup and dependencies
+- `systemPatterns.md` - Architecture and design patterns
+- `activeContext.md` - Current work focus and recent changes
+- `progress.md` - Completed work and known issues
+
+### Workflow
+1. **Start of session:** Read all memory-bank files
+2. **Before coding:** Check activeContext.md for current focus
+3. **After changes:** Update activeContext.md and progress.md
+4. **Follow patterns:** Match existing code style and architecture
+5. **Test first:** Run tests before committing changes
